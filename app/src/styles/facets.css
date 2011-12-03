@@ -1,0 +1,120 @@
+.facet-pane-heading {
+    font-size:      120%;
+    font-weight:    bold;
+    margin-top:     2em;
+}
+
+.facet-pane-controls {
+    font-weight:    bold;
+    text-align:     right;
+    margin-bottom:  1em;
+    border-top:     1px solid #B8B8DB;
+    padding-top:    2px;
+}
+
+.facet-pane-status-section {
+    padding:        10px;
+    text-align:     center;
+    color:          #888;
+}
+.facet-pane-status-section img {
+    vertical-align: middle;
+}
+
+.facet-pane-add-filter-section {
+    display:        none;
+    margin-top:     2em;
+}
+.facet-pane-add-filter-section-heading {
+    font-weight:    bold;
+    cursor:         pointer;
+    background:     #eee;
+    padding:        5px;
+}
+.facet-pane-add-filter-section-heading img {
+    vertical-align: middle;
+}
+.facet-pane-add-filter-section-body {
+    padding:        2px;
+    padding-left:   20px;
+    border:         1px solid #ccc;
+    height:         20em;
+    overflow:       auto;
+}
+.facet-pane-add-filter {
+}
+.facet-pane-add-filter-detail {
+    color:      #aaa;
+    font-size:  80%;
+}
+
+.facet {
+    margin-bottom:  1em;
+}
+
+.facet-header {
+    padding: 2px;
+}
+.facet-header-label {
+    font-weight: bold;
+}
+.facet-header-close {
+    vertical-align: text-top;
+    cursor:         pointer;
+}
+
+.facet-status-section {
+    padding:    10px;
+    text-align: center;
+}
+
+.facet-body {
+    padding:        5px;
+    padding-left:   20px;
+}
+.facet-body-scrollable {
+    padding:      5px;
+    padding-left: 20px;
+    border:       1px solid #ccc;
+    height:       15em;
+    overflow:     auto;
+}
+
+.facet-choice {
+}
+a.facet-choice-label {
+    color:                 #008;
+    text-decoration:     none;
+}
+a.facet-choice-label:hover {
+    text-decoration:    underline;
+}
+.facet-choice-count {
+    color: #888;
+}
+.facet-choice-action {
+    font-size: 80%;
+}
+.facet-choice-selected .facet-choice-label{
+    color: #a44;
+    font-weight: bold;
+}
+.facet-footer {
+    padding:        5px;
+    padding-left:   20px;
+    font-size:      80%;
+    color:          #aaa;
+}
+
+.text-search-facet-input-container {
+}
+.text-search-facet-input-container input{
+}
+
+.text-search-facet-status {
+    padding:    3px;
+    font-size:  80%;
+    color:      #888;
+}
+.text-search-facet-query {
+}

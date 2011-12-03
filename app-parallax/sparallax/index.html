@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>DERI Sparallax - Freebase Parallax for SPARQL endpoints</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="styles/parallax-search-widget.css" type="text/css" />
+    <script type="text/javascript" src="scripts/log4javascript.js"></script>
+    <script src="scripts/externals/simile-ajax-api.js"></script>
+    <script>window.$ = window.jQuery = SimileAjax.jQuery;</script>
+	    <script src="scripts/common.js"></script>
+	
+	 <script src="scripts/translator.js"></script>
+
+   
+	<script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    
+    <script src="scripts/parallax-search-widget.js"></script>
+    <script src="scripts/index.js"></script>
+	
+</head>
+<body onload="onLoad();">
+ <script src="scripts/externals/wz_tooltip.js"></script>
+    <div id="header-pane">
+        <div><span style="font-family: Arial; font-size: 20pt; font-weight: normal"> Sparallax</span></div>
+        <div><span style="font-style: italic;">faceted browsing interface for SPARQL endpoints,based on <a href="http://mqlx.com/~david/parallax/">Freebase Parallax </a>&mdash; 
+				send comments to <a href="mailto:giovanni.tummarello@deri.org">Giovanni Tummarello </a> &bull<a href="mailto:nishant.jain10@gmail.com">Nishant Jain				</a> ;
+				<a href="sparallax-0.9.0.tar.gz" target="_blank">get source code</a>
+			</span>
+        </div>
+    </div>
+    
+    <center id="control-pane">
+        <table cellpadding="50"><tr valign="top">
+            <td>
+                <div class="teaser-message">don't just search<br/>for one thing!</div>
+				
+                <div class="teaser-message">explore a whole set of<br/>related things together(<a href="http://mqlx.com/~david/parallax/">*</a>)!<br/><br>
+... now on your SPARQL endpoint </br></div>Choose your dataset and start  browsing<br/><br/>
+				<select name="Selectdataset" id="Selectdataset" size="3"  onchange="selectdataset(this.value);">
+				
+				<option value="lmdb">Linked Movie Database</option>
+				<option selected="selected" value="dbpedia">DBpedia</option>
+				</select>
+				<br>Or you may browse your own <a href="#;" onmouseover="Tip('In order to browse using sparallax ,sparql endpoint must meet certain Requirements <br></br>1. Only Virtuoso SPARQL endpoint are supported(need Aggregation Extension)<br>2. All Properties should explicitly specify their range and domain</br>3. All classes must declare them as a type of rdfs:Class',TITLE,'Dataset Requirements',CLOSEBTN,true,CLICKSTICKY,true,CLICKCLOSE,true)" onmouseout="UnTip()">dataset </a> by configuring <a href="javascript:makeformvisible ();" >here</a></br>
+				<div id="userconfig" >
+				<form action="" method="get">
+<table>
+
+<tr>
+<td>Endpoint:</td>
+<td>
+<input type="text" name="endpoint" value = "http://virtuoso.deri.ie/sparql" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>Graph:</td>
+<td>
+<input type="text" name="graph" value="http://dbpedia.org" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>Dataset:</td>
+<td>
+<input type="text" name="dataset" value="mydataset" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>Image Property:</td>
+<td>
+<input type="text" name="imageprop" value="http://xmlns.com/foaf/0.1/img" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>Abstract Property:</td>
+<td>
+<input type="text" name="abstractprop" value="http://dbpedia.org/property/abstract" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="Submit" onClick="getuserconfiguration(this.form);" />
+<input type="button" value="Close" onClick="javascript:new function(){document.getElementById('userconfig').style.display='none';};" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+<br>Some Sample <a href="#;" onmouseover="Tip('Find all the actors who have acted in a horror film.<br> Steps<br>1.Select Linked movie dataset and search for <strong>horror</strong></br>2.Select <strong>film genre</strong> collection<br>3.Select from more connections ,a connection to film  by property <strong>film genre of</strong></br>4.Select <strong>actors</strong> from connections and there you are</br>',TITLE,'Use Cases',CLOSEBTN,true,CLICKSTICKY,true,CLICKCLOSE,true)" onmouseout="UnTip()">Use Cases </a> 
+</br>
+<script>var user=document.getElementById("userconfig");
+  user.style.display = "none";</script>
+                <div id="explore-input-container"><input id="explore-input"></input></div>
+                
+                <p>Try 
+                    <a href="javascript:doExample('president');">president</a>,
+                    <a href="javascript:doExample('camera');">camera</a>,
+                    <a href="javascript:doExample('skyscraper');">skyscraper</a>,
+                    <a href="javascript:doExample('horror');">horror</a>.
+                </p>
+            </td>
+            <td>
+			<img src="images/sparallax.png">
+			<br>
+			Sparallax works with a MQL to SPARQL two way translator (Request  and 
+Reply) which sits between Parallax</br>  and the SPARQL endpoint.<br>
+Sparallax allows customizations on how to visualize a Semantic Web
+dataset thanks to simple configuration files.</br>
+				<!--object width="700" height="700">
+					<param name="allowfullscreen" value="true" />
+					<param name="allowscriptaccess" value="always" />
+					<param name="movie" value="http://www.vimeo.com/moogaloop.swf?clip_id=1513562&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
+					<embed src="sparallax.jpg" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="700" height="700"></embed>
+				</object-->
+            </td>
+        </tr></table>
+    </center>
+    
+    <center style="font-size: 80%; margin: 20px;">
+	 
+	An adaptation of Research prototype on <a href="http://www.freebase.com/">Freebase</a> designed + built by <a href="http://davidhuynh.net/">David Huynh</a>, Research Scientist, <a href="http://metaweb.com/">Metaweb Technologies, Inc.</a><br/>
+		Sparallax is <a href="sparallax-0.9.0.tar.gz" target="_blank">open-sourced.</a>
+    </center>
+</body>
+</html>

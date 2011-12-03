@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/22/app/trunk/src/styles/views
+END
+timeline-view.css
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/3/app/trunk/src/styles/views/timeline-view.css
+END
+chart1d-view.css
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/3/app/trunk/src/styles/views/chart1d-view.css
+END
+chart2d-view.css
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/3/app/trunk/src/styles/views/chart2d-view.css
+END
+tabular-view.css
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/22/app/trunk/src/styles/views/tabular-view.css
+END
+map-view.css
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/3/app/trunk/src/styles/views/map-view.css
+END

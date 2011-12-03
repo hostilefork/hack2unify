@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>Freebase Parallax - Thumbnails</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/thumbnail.css" type="text/css" />
+    <link rel="stylesheet" href="styles/attribution.css" type="text/css" />
+    <style>
+        #the-container {
+            margin-bottom: 3em;
+        }
+        .item-lens-container {
+            padding:        1em;
+            width:          30em;
+            border:         1px solid #ccc;
+            height:         18em;
+            overflow:       hidden;
+        }
+        a.thumbnail {
+            margin: 1em;
+            float:  left;
+            text-decoration:    none;
+        }
+        .thumbnail img {
+            border: 1px solid #ccc;
+        }
+        .thumbnail-missing {
+            border: 1px solid #ccc;
+        }
+        .caption {
+            height:             3em;
+            overflow:           hidden;
+            color:              #aaa;
+            font-size:          80%;
+        }
+    </style>
+    <script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/url.js"></script>
+    <script src="scripts/util/ui.js"></script>
+    <script>
+        var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
+        function genericErrorHandler(s) {
+            log(s);
+        }
+        
+        var thumbSize = 100;
+        function onLoad() {
+            try {
+                var params = parseURLParameters(document.location.href);
+                var queryNode = JSON.parse(params["query"]);
+                thumbSize = parseInt(params["thumbsize"]);
+                
+                queryNode["/common/topic/image"]  = [{ "id" : null, "limit" : 1, "optional" : true }];
+                queryNode["name"] = null;
+                JsonpQueue.queryOne(
+                    [queryNode], 
+                    function(o) { 
+                        render(o.result); 
+                    }, 
+                    genericErrorHandler
+                );
+            } catch (e) {
+                alert(e);
+            }
+        }
+        
+        function render(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                renderEntry(entries[i]);
+            }
+        }
+        
+        function renderEntry(entry) {
+            var a = document.createElement("a");
+            a.className = "thumbnail";
+            a.href = ParallaxConfig.corpusBaseUrl + "view" + entry.id;
+            a.style.width = thumbSize + "px";
+            
+            var thumbnail = null;
+            if ("/common/topic/image" in entry && entry["/common/topic/image"] != null && entry["/common/topic/image"].length > 0) {
+                var thumbnailEntry = entry["/common/topic/image"][0];
+                if ("id" in thumbnailEntry) {
+                    var thumbnail = document.createElement("img");
+                    thumbnail.src = ParallaxConfig.corpusBaseUrl + "api/trans/image_thumb" + thumbnailEntry.id +
+                        "?" + [ 
+                            "mode=fillcrop",
+                            "maxheight=" + thumbSize,
+                            "maxwidth=" + thumbSize
+                        ].join("&");
+                }
+            }
+            if (thumbnail == null) {
+                thumbnail = document.createElement("div");
+                thumbnail.className = "thumbnail-missing";
+                thumbnail.innerHTML = "&nbsp;";
+                thumbnail.style.height = thumbSize + "px";
+            }
+            a.appendChild(thumbnail);
+            
+            var divCaption = document.createElement("div");
+            divCaption.className = "caption";
+            divCaption.innerHTML = entry.name;
+            a.appendChild(divCaption);
+            
+            document.getElementById("the-container").appendChild(a);
+        }
+        
+        function showLightboxForThumbnail(evt) {
+            // not sure what to do
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div class="freebase-attribution">
+        <img class="freebase-attribution-logo" src="http://www.freebase.com/api/trans/raw/freebase/attribution" />
+        <div>
+            Source: <a href="http://www.freebase.com" title="Freebase &ndash; The World's Database">Freebase</a> &ndash; The World's Database <br/> 
+            Freely licensed under <a href="http://www.freebase.com/view/common/license/cc_attribution_25">CC-BY</a>.
+        </div>
+    </div> 
+    <div id="the-container"></div>
+</body>
+</html>

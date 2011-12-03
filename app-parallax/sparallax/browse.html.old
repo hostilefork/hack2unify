@@ -1,0 +1,181 @@
+<html>
+<head>
+    <title>Freebase Parallax</title>
+    <script src="scripts/externals/simile-ajax-api.js"></script>
+    <script src="loader.js"></script>
+	<script type="text/javascript" src="scripts/log4javascript.js"></script>
+<script type="text/javascript">
+	var log = log4javascript.getDefaultLogger();
+
+</script>
+
+    <script>
+        window.$ = window.jQuery = SimileAjax.jQuery;
+        parallaxLoadCSS(
+            "bundles/browse-bundle.css",
+            [
+                "styles/common.css",
+                "styles/browse.css",
+                "styles/history.css",
+                "styles/pivots.css",
+                "styles/facets.css",
+                "styles/topic.css",
+                "styles/changes.css",
+                "styles/parallax-search-widget.css",
+                "styles/dimension-picker-widget.css",
+                "styles/views.css",
+                "styles/views/map-view.css",
+                "styles/views/timeline-view.css",
+                "styles/views/chart1d-view.css",
+                "styles/views/chart2d-view.css",
+				"styles/views/tabular-view.css",
+                "styles/thumbnail.css"
+            ]
+        );
+        parallaxLoadJavascript(
+            "bundles/browse-bundle.js",
+            [
+                "scripts/externals/jquery-in/jquery-ui-personalized-1.5.2.packed.js",
+                "scripts/externals/jquery.cookie.js",
+                "scripts/externals/json2.js",
+                "scripts/externals/rison.js",
+			//	"scripts/translation.js",
+				"scripts/translator.js",
+                
+                "scripts/common.js",
+                "scripts/util/queue.js",
+                "scripts/util/render.js",
+                "scripts/util/render-topic-page.js",
+                "scripts/util/url.js",
+                "scripts/util/listener-queue.js",
+                "scripts/util/ui.js",
+                "scripts/util/change-manager.js",
+                "scripts/util/color-coder.js",
+                "scripts/util/logging.js",
+                
+                "scripts/data/schema-util.js",
+                "scripts/data/path-util.js",
+                "scripts/data/collection-definition.js",
+                "scripts/data/collection.js",
+                "scripts/data/type-stack.js",
+                
+                "scripts/views/view-util.js",
+                "scripts/views/thumbnail-view.js",
+                "scripts/views/single-topic-view.js",
+                "scripts/views/map-view/map-view.js",
+                "scripts/views/map-view/map-view-querying.js",
+                "scripts/views/timeline-view/timeline-view.js",
+                "scripts/views/timeline-view/timeline-view-worker.js",
+                "scripts/views/chart-1d-view/chart-1d-view.js",
+                "scripts/views/chart-1d-view/chart-1d-view-worker.js",
+                "scripts/views/chart-2d-view/chart-2d-view.js",
+                "scripts/views/chart-2d-view/chart-2d-view-worker.js",
+                "scripts/views/tabular-view/tabular-view.js",
+                "scripts/views/tabular-view/tabular-view-worker.js",
+                
+                "scripts/facets/list-facet.js",
+                "scripts/facets/text-search-facet.js",
+                
+                "scripts/trail-point.js",
+                "scripts/parallax-search-widget.js",
+                "scripts/property-picker-widget.js",
+                "scripts/dimension-picker-widget.js",
+                "scripts/browse.js"
+            ]
+        );
+    </script>
+    <link type="text/css" rel="stylesheet" href="scripts/externals/freebase-suggest/css/freebase-controls.css" />
+    <script type="text/javascript" src="scripts/externals/freebase-suggest/freebase.suggest.js"></script>
+</head>
+<body onload="onLoad()">
+    <div id="header-pane">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr valign="top">
+            <td>
+                <a href="index.html" style="text-decoration:none;"><span style="font-family: Arial; font-size: 20pt; font-weight: normal"></b> Sparallax</span></a>
+            </td>
+            <td align="right">
+                <a href="javascript:showPermanentLink();">link to this page</a> &bull; new search <input id="explore-input"></input>
+            </td>
+        </tr></table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr valign="bottom">
+            <td>
+                <div><span style="font-style: italic;">a novel browsing interface designed for Sparql Endpoint &mdash; 
+				send comments to <a href="mailto:giovanni.tummarello@deri.org">Giovanni Tummarello </a> &bull<a href="mailto:nishant.jain10@gmail.com">Nishant Jain				</a> ; &bull;
+						<a href="http://code.google.com/p/freebase-parallax/" target="_blank">get source code</a>
+					</span>
+                </div>
+            </td>
+            <td align="right" style="font-size: 80%; margin-top: 10px;">
+                debug: <a id="debug-toggle" href="javascript:toggleDebug();">activate</a>
+            </td>
+        </tr></table>
+    </div>
+    
+    <div id="history-pivot-pane">
+        <div id="history-pane"></div>
+        <div id="pivot-pane"></div>
+    </div>
+    
+    <table width="100%" cellspacing="0" cellpadding="0" border="0"><tr valign="top">
+        <td width="1%">
+            <div id="facet-pane"></div>
+        </td>
+        <td>
+            <div id="view-selector-pane"></div>
+            <div id="view-pane"></div>
+        </td>
+    </tr></table>
+    
+    <div id="history-entry-template" style="display: none"></div>
+    
+    <div id="facet-template" style="display: none" class="facet">
+        <div class="facet-header">
+            <img class="facet-header-close" src="images/close-button.png" />
+            <span class="facet-header-label"></span>
+            <a href="javascript:{}" class="action" style="display: none;">reset</a>
+            <a href="javascript:{}" class="action" style="display: none;">map</a>
+            <a href="javascript:{}" class="action" style="display: none;">query</a>
+        </div>
+        <div class="facet-body" style="display: none;"></div>
+        <div class="facet-status-section status"><img src="images/progress-running.gif" /> Working...</div>
+        <div class="facet-footer">
+            <a href="javascript:{}" class="action" style="display: none;">more choices...</a>
+            <a href="javascript:{}" class="action" style="display: none;">show top choices only</a>
+            <span style="display: none;">&bull;</span>
+            <a href="javascript:{}" class="action">settings &raquo;</a>
+        </div>
+    </div>
+    
+    <div id="text-search-facet-template" style="display: none" class="facet">
+        <div class="facet-header">
+            <span class="facet-header-label">Search within Results</span>
+            <a href="javascript:{}" class="facet-header-action" style="display: none;">reset</a>
+        </div>
+        <div class="text-search-facet-input-container"><input></input></div>
+        <div class="text-search-facet-status" style="display: none">
+            Searched for: <span class="text-search-facet-query"></span>.
+            <a href="javascript:{}" class="facet-header-action">clear</a>
+        </div>
+    </div>
+    
+    <div id="facet-choice-template" class="facet-choice" style="display: none">
+        <a href="javascript:{}" class="facet-choice-label"></a>
+        <span class="facet-choice-count"></span>
+        <a href="javascript:{}" class="facet-choice-action action"></a>
+    </div>
+    
+    <span id="history-block-template" class="history-entry" style="display: none"></span>
+    
+    <div id="pivoting-explanation" class="pivoting-explanation">
+        <h1>What Just Happened?</h1>
+        <div>So you were looking at a set of topics, and you're now 
+            looking at another, different set of topics
+            that are related to the previous set of topics.
+        </div>
+        <div>In case you have filtered the previous set of topics down
+            to a subset, then this new set of topics are related to
+            only that subset.
+        </div>
+    </div>
+</body>
+</html>

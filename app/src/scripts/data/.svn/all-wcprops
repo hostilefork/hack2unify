@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/29/app/trunk/src/scripts/data
+END
+type-stack.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/29/app/trunk/src/scripts/data/type-stack.js
+END
+path-util.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/21/app/trunk/src/scripts/data/path-util.js
+END
+schema-util.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/8/app/trunk/src/scripts/data/schema-util.js
+END
+collection.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/3/app/trunk/src/scripts/data/collection.js
+END
+collection-definition.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/app/trunk/src/scripts/data/collection-definition.js
+END

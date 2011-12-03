@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>Freebase Parallax - Tiles</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/attribution.css" type="text/css" />
+    <style>
+        #the-container {
+            margin-bottom: 3em;
+        }
+        .item-lens-container {
+            margin: 1em;
+        }
+        .item-lens-container a {
+            text-decoration: none;
+        }
+        .item-lens-container img {
+            border: 1px solid #ccc;
+        }
+        .thumbnail-missing {
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/url.js"></script>
+    <script>
+        var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
+        function genericErrorHandler(s) {
+            log(s);
+        }
+        
+        var thumbSize = 100;
+        function onLoad() {
+            try {
+                var params = parseURLParameters(document.location.href);
+                var queryNode = JSON.parse(params["query"]);
+                thumbSize = parseInt(params["thumbsize"]);
+                
+                JsonpQueue.queryOne(
+                    [queryNode], 
+                    function(o) { 
+                        render(o.result); 
+                    }, 
+                    genericErrorHandler
+                );
+            } catch (e) {
+                alert(e);
+            }
+        }
+        
+        function render(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                renderEntry(entries[i]);
+            }
+        }
+        
+        function renderEntry(entry) {
+            var div = document.createElement("div");
+            div.className = "item-lens-container";
+            document.getElementById("the-container").appendChild(div);
+            
+            renderItem(entry.id, div);
+        }
+        
+        function onFocus(itemID, name) {
+            window.open(ParallaxConfig.corpusBaseUrl + "view" + itemID, "_blank");
+        }
+        
+        function showLightboxForThumbnail(evt) {
+            // not sure what to do
+        }
+        
+        var encodeHTML = function(s) {
+            return s.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+        };
+        
+        function renderItem(itemID, div) {
+            var gotJSON = function(o) {
+                var name = o.name;
+
+                div.innerHTML = 
+                    "<div class=''><table><tr valign='top'>" +
+                        "<td></td>" +
+                        "<td><a href='javascript:{}'>" +
+                            ("name" in o ? name : itemID) +
+                        "</a></td>" +
+                    "</tr></table></div>";
+                    
+                var table = div.firstChild.firstChild;
+                var tr = table.rows[0];
+                tr.cells[1].childNodes[0].href = ParallaxConfig.corpusBaseUrl + "view" + itemID;
+                
+                if ("thumbnails" in o && o.thumbnails.length > 0) {
+                    var thumbnailEntry = o.thumbnails[0];
+                    
+                    var img = document.createElement("img");
+                    img.className = "thumbnail";
+                    img.src = thumbnailEntry.url;
+                    img.title = thumbnailEntry.title;
+                    tr.cells[0].appendChild(img);
+                } else {
+                    var thumbnailDiv = document.createElement("div");
+                    thumbnailDiv.className = "thumbnail-missing";
+                    thumbnailDiv.innerHTML = "&nbsp;";
+                    thumbnailDiv.style.height = thumbSize + "px";
+                    thumbnailDiv.style.width = thumbSize + "px";
+                    tr.cells[0].appendChild(thumbnailDiv);
+                }
+            };
+            
+            var url = "http://hotshot.dfhuynh.user.dev." + window.ParallaxConfig.appBaseUrl + "acre/json?thumbnailsize=" + thumbSize + "&id=" + encodeURIComponent(itemID);
+            JsonpQueue.call(url, gotJSON, genericErrorHandler);
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div class="freebase-attribution">
+        <img class="freebase-attribution-logo" src="http://www.freebase.com/api/trans/raw/freebase/attribution" />
+        <div>
+            Source: <a href="http://www.freebase.com" title="Freebase &ndash; The World's Database">Freebase</a> &ndash; The World's Database <br/> 
+            Freely licensed under <a href="http://www.freebase.com/view/common/license/cc_attribution_25">CC-BY</a>.
+        </div>
+    </div> 
+    <div id="the-container"></div>
+</body>
+</html>

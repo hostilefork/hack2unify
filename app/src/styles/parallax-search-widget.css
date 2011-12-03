@@ -1,0 +1,116 @@
+.parallax-search-widget-status-panel {
+    width:          250px;
+    border:         1px solid #aaa;
+    background:     #eff;
+    padding:        20px;
+    
+    text-align:     left;
+    position:       absolute;
+    display:        none;
+}
+
+.parallax-search-widget-status-message {
+    font-size:  200%;
+    font-style: italic;
+    color:      #aaa;
+}
+
+.parallax-search-widget-error-panel {
+    width:          250px;
+    border:         1px solid #aaa;
+    background:     #fffee0;
+    padding:        20px;
+    
+    text-align:     left;
+    position:        absolute;
+    display:        none;
+}
+
+.parallax-search-widget-error-title  {
+    font-size:  150%;
+    font-style: italic;
+    color:      #a88;
+}
+
+.parallax-search-widget-error-message {
+    color:        #aaa;
+}
+
+.parallax-search-widget-result-panel {
+    width:          300px;
+    border:         1px solid #aaa;
+    background:     #eff;
+    padding:        1px;
+    padding-bottom: 10px;
+    
+    max-height:     400px !important;
+    overflow:       auto;
+    
+    text-align:     left;
+    position:       absolute;
+    display:        none;
+}
+
+.parallax-search-widget-result-section {
+    border-top:     1px solid #aaa;
+}
+
+.parallax-search-widget-result-heading {
+    padding:        0.5em;
+    font-weight:    bold;
+}
+.parallax-search-widget-result-heading .parallax-search-widget-result-highlight {
+    font-weight:    normal;
+}
+
+.parallax-search-widget-result-list {
+}
+
+.parallax-search-widget-result-status {
+    padding:            0.5em;
+    color:              #aaa;
+    text-align:         center;
+}
+
+a.parallax-search-widget-result-row {
+    color:              black;
+    margin:             1px;
+    padding:            0.25em 0.5em;
+    display:            block;
+    text-decoration:    none;
+}
+
+a.parallax-search-widget-result-row:hover {
+    background: #ccc;
+}
+
+.parallax-search-widget-result-row-selected {
+    background: #ccc;
+}
+
+.parallax-search-widget-result-highlight {
+    background: yellow;
+}
+
+.parallax-search-widget-result-user-type {
+    color: #888;
+}
+
+.parallax-search-widget-result-show-more {
+    text-align: center;
+    margin:     5px;
+}
+
+.parallax-search-widget-result-topic-name {
+    margin-left: 1em;
+    font-weight: bold;
+}
+.parallax-search-widget-result-topic-types {
+    margin-left: 1em;
+    color:      #aaa;
+    font-style: italic;
+}
+.parallax-search-widget-result-topic-image {
+    margin-left: 3px;
+    border:      none;
+}

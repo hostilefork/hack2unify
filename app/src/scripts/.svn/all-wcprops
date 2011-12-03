@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/31/app/trunk/src/scripts
+END
+index.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3/app/trunk/src/scripts/index.js
+END
+parallax-search-widget.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/26/app/trunk/src/scripts/parallax-search-widget.js
+END
+common.js
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/26/app/trunk/src/scripts/common.js
+END
+property-picker-widget.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/21/app/trunk/src/scripts/property-picker-widget.js
+END
+dimension-picker-widget.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/3/app/trunk/src/scripts/dimension-picker-widget.js
+END
+browse.js
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/26/app/trunk/src/scripts/browse.js
+END
+trail-point.js
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/20/app/trunk/src/scripts/trail-point.js
+END

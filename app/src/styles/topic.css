@@ -1,0 +1,135 @@
+.topic-view-essential-section {
+    margin-bottom:  2em;
+    border:         1px solid #ccc;
+    border-top:     none;
+}
+
+.topic-view-tab-header-container {
+    padding: 10px 0px;
+}
+
+.topic-view-tab-header {
+    padding: 5px 5px 5px 15px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    background:#eee;
+    cursor: pointer;
+}
+
+.topic-view-tab-header-selected {
+    margin-left: 0px;
+    font-weight: bold;
+    background:#ddd;
+    cursor: default;
+}
+
+.topic-view-tab-body-container {
+    border-left:    2px solid #ddd;
+    padding:        10px 20px 10px 20px;
+}
+
+.topic-view-tab-body {
+}
+
+.topic-view-freebase-link {
+    font-size: 8pt;
+    color: #88e;
+}
+
+.topic-view-section-inline-label {
+    font-weight: bold;
+}
+
+.topic-view-section-label {
+    font-weight: bold;
+}
+
+.topic-view-alias-section {
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+.topic-view-article-and-images-section {
+}
+
+.topic-view-thumbnail-container {
+    margin:     10px;
+    margin-top: 0px;
+    border:     1px solid #ccc;
+}
+
+.topic-view-web-links-section {
+}
+
+
+.topic-view-table {
+}
+
+.topic-view-nested-table {
+}
+
+td.topic-view-type-section {
+    font-weight:    bold;
+    padding:        15px 3px 5px 5px;
+    color:            #844;
+}
+
+td.topic-view-property-label {
+    padding:        3px 5px;
+    font-weight:    bold;
+    color:          #aaa;
+    font-size:      80%;
+    border-top:     1px solid #ddd;
+}
+td.topic-view-property-value-container {
+    padding:    3px;
+    border-top: 1px solid #ddd;
+}
+
+td.topic-view-nested-property-container {
+    border-left:   1px solid #ddd;
+}
+
+td.topic-view-nested-property-label {
+    font-weight:    bold;
+    color:          #aaa;
+    font-size:      80%;
+    background: #eee;
+    padding:    3px;
+    border-top: 1px solid #ddd;
+}
+
+.topic-view-nested-property-value-container {
+    padding:    3px;
+    border-top: 1px solid #ddd;
+}
+
+.topic-view-micro-thumbnail {
+    margin: 2px;
+    border: none;
+    vertical-align: text-top;
+}
+
+td.topic-view-browse-all {
+    border-top: 1px solid #ddd;
+    padding:    3px;
+    font-size:  80%;
+}
+
+div.topic-view-browse-all {
+    margin-top: 5px;
+    font-size:  80%;
+}
+
+.topic-view-browse-all  a {
+    color:      #aaf;
+}
+
+.topic-view-add {
+    padding:        2px;
+    background:     #fffee0;
+    font-size:      8pt;
+    text-align:     center;
+}

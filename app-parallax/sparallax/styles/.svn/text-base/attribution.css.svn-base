@@ -1,0 +1,9 @@
+.freebase-attribution {
+    padding:    1em;
+    text-align: right;
+    font-size:  x-small;
+}
+.freebase-attribution-logo {
+    float: right; 
+    margin-left: 5px
+}

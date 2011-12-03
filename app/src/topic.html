@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Freebase Parallax</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/topic.css" type="text/css" />
+	<link rel="stylesheet" href="styles/changes.css" type="text/css" />
+    
+    <script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+	<script>window.$ = window.jQuery = SimileAjax.jQuery;</script>
+	
+    <script src="scripts/externals/json2.js"></script>
+    
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/render-topic-page.js"></script>
+    <script src="scripts/util/url.js"></script>
+	<script src="scripts/data/schema-util.js"></script>
+	<script src="scripts/util/change-manager.js"></script>
+    
+	<link type="text/css" rel="stylesheet" href="scripts/externals/freebase-suggest/css/freebase-controls.css" />
+	<script type="text/javascript" src="scripts/externals/freebase-suggest/freebase.suggest.js"></script>
+	
+    <script>
+        function onLoad() {
+            var itemID = parseURLParameters(document.location.href)["id"];
+            renderTopicPage(itemID, document.getElementById("content"), function() {});
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div id="header-pane">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr valign="top">
+            <td>
+                <div><span style="font-family: Arial; font-size: 20pt; font-weight: normal">free<b>base</b> parallax</span></div>
+                <div><span style="font-style: italic;">a novel browsing interface designed for freebase &mdash; send comments to <a href="mailto:david@metaweb.com">David Huynh</a></span>
+                </div>
+            </td>
+            <td align="right">debug: <a id="debug-toggle" href="javascript:toggleDebug();">activate</a></td>
+        </tr></table>
+    </div>
+    
+    <div id="content" style="margin: 5em;"></div>
+</body>
+</html>

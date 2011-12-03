@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/32/app/trunk
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/3/app/trunk/license.txt
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/7/app/trunk/.project
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/26/app/trunk/build.xml
+END

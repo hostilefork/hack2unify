@@ -1,0 +1,21 @@
+.timeline-view-controls {
+	margin: 		20px 0px;
+	background:		#eee;
+}
+.timeline-view-legend {
+	padding:	20px;
+}
+.timeline-view-legend-entry {
+	margin-bottom: 2px;
+}
+.timeline-view-legend-entry img {
+	margin-right: 5px;
+}
+.timeline-view-container {
+    margin: 1em 0;
+    border: 1px solid #ccc;
+}
+.timeline-view-bubble-content {
+    height:         18em;
+    overflow:       hidden;
+}

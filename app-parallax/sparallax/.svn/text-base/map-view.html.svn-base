@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Map View</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/browse.css" type="text/css" />
+    <link rel="stylesheet" href="styles/thumbnail.css" type="text/css" />
+    <style>
+        #the-map {
+            position:     fixed;
+            top:        0px;
+            left:        0px;
+            width:        100%;
+            height:        100%;
+        }
+        .item-lens-container {
+            padding:        1em;
+            width:          30em;
+            border:         1px solid #ccc;
+            height:         18em;
+            overflow:       hidden;
+        }
+    </style>
+	<script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/render.js"></script>
+    <script src="scripts/util/url.js"></script>
+    <script src="scripts/views/map-view/map-view-markers.js"></script>
+    <script src="scripts/views/map-view/map-view-plotting.js"></script>
+    <script>
+        var keys = {
+            "http://mqlx.com/~david/parallax/":
+                "ABQIAAAA5JLLfCE9c7HAtg25QM2KCRTybkRvmvJmmY2jEIjRP5SA6vMolhQSYAaJ2sMVVgF2vj09l_VwCefftw",
+            "http://mqlx.com/~david/parallax-staging/":
+                "ABQIAAAA5JLLfCE9c7HAtg25QM2KCRQo1yEfLpCpxhzlEXIU-9s8ddOl3hR54gH6LsXMf1reF1g0Ojb3EfUdgw",
+            "http://mqlx.com/~david/parallax-sandbox/":
+                "ABQIAAAA5JLLfCE9c7HAtg25QM2KCRQqlobF7LAn0SGDkXvlhIiC8e2rXBQTPUorHTZK4jbJLIofPGn2_jBFAA"
+        };
+        
+        var params = parseURLParameters(document.location.href);
+        var key = "";
+        for (var n in keys) {
+            if (document.location.href.indexOf(n) == 0) {
+                key = keys[n];
+                break;
+            }
+        }
+        includeJavascriptFile("http://maps.google.com/maps?file=api&v=2&key=" + key );
+    </script>
+    <script>
+        function onLoad() {
+            createMap();
+            window.parent[params.callbackID]();
+        }
+
+        function clearPoints() {
+            map.clearOverlays();
+        }
+
+        function mapPoints(dataPoints, hasSize, hasImage, popupRenderer, onFocus) {
+            map.clearOverlays();
+            internalAddPoints(dataPoints, hasSize, hasImage, popupRenderer, onFocus);
+        }
+
+        function showLightboxForThumbnail(evt) {
+            return window.parent["showLightboxForThumbnail"](evt, this.src);
+        }
+        
+
+    </script>
+</head>
+<body onload="onLoad()"><div id="the-map"></div></body>
+</html>

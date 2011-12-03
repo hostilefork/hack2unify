@@ -1,0 +1,15 @@
+.dimension-picker-widget-quick-filter-section {
+    padding:        5px;
+    background:     #ccc;
+    border-bottom:  1px solid #aaa;
+}
+.dimension-picker-widget-quick-filter-section-heading {
+    font-size:      80%;
+    font-weight:    bold;
+    color:          #888;
+    margin-bottom:  2px;
+}
+.dimension-picker-widget-quick-filter-section-input input {
+    width: 100%;
+    border: none;
+}

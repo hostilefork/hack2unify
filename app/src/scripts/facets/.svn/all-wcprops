@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/15/app/trunk/src/scripts/facets
+END
+text-search-facet.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/3/app/trunk/src/scripts/facets/text-search-facet.js
+END
+list-facet.js
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/15/app/trunk/src/scripts/facets/list-facet.js
+END

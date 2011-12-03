@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Freebase Parallax</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="styles/parallax-search-widget.css" type="text/css" />
+    
+    <script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+    <script>window.$ = window.jQuery = SimileAjax.jQuery;</script>
+    
+    <script src="scripts/common.js"></script>
+    <script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    
+    <script src="scripts/parallax-search-widget.js"></script>
+    <script src="scripts/index.js"></script>
+</head>
+<body onload="onLoad();">
+    <div id="header-pane">
+        <div><span style="font-family: Arial; font-size: 20pt; font-weight: normal">free<b>base</b> parallax</span></div>
+        <div><span style="font-style: italic;">a novel browsing interface designed for freebase &mdash; 
+				send comments to <a href="mailto:david@metaweb.com">David Huynh</a> &bull;
+				<a href="http://code.google.com/p/freebase-parallax/" target="_blank">get source code</a>
+			</span>
+        </div>
+    </div>
+    
+    <center id="control-pane">
+        <table cellpadding="50"><tr valign="top">
+            <td>
+                <div class="teaser-message">don't just search<br/>for one thing!</div>
+				
+                <div class="teaser-message">explore a whole set of<br/>related things together!</div>
+				
+                <div id="explore-input-container"><input id="explore-input"></input></div>
+                
+                <p>Try 
+                    <a href="javascript:doExample('president');">president</a>,
+                    <a href="javascript:doExample('camera');">camera</a>,
+                    <a href="javascript:doExample('skyscraper');">skyscraper</a>,
+                    <a href="javascript:doExample('venture');">venture</a>.
+                </p>
+            </td>
+            <td>
+				<object width="480" height="360">
+					<param name="allowfullscreen" value="true" />
+					<param name="allowscriptaccess" value="always" />
+					<param name="movie" value="http://www.vimeo.com/moogaloop.swf?clip_id=1513562&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
+					<embed src="http://www.vimeo.com/moogaloop.swf?clip_id=1513562&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="480" height="360"></embed>
+				</object>
+            </td>
+        </tr></table>
+    </center>
+    
+    <center style="font-size: 80%; margin: 20px;">
+		Research prototype on <a href="http://www.freebase.com/">Freebase</a> designed + built by <a href="http://davidhuynh.net/">David Huynh</a>, Research Scientist, <a href="http://metaweb.com/">Metaweb Technologies, Inc.</a><br/>
+		Parallax is <a href="http://code.google.com/p/freebase-parallax/" target="_blank">open-sourced.</a>
+    </center>
+</body>
+</html>

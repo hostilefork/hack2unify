@@ -1,0 +1,14 @@
+.history-entry {
+    background:             #ccc;
+    padding:                3px 7px;
+    -moz-border-radius:     10px;
+    margin-right:           5px;
+    cursor:                 pointer;
+}
+
+.history-entry-selected {
+    background:     white;
+    color:          black;
+    cursor:         default;
+    border:         1px solid #aaa;
+}

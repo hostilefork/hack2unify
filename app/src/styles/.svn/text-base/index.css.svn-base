@@ -1,0 +1,36 @@
+body {
+    background: #dfdfdf;
+}
+
+#control-pane {
+    background: #fffee0;
+}
+
+.teaser-message {
+    font-size:      180%;
+    font-weight:    bold;
+    color:          #844;
+    font-style:     italic;
+	margin:			1em 0;
+}
+
+.teaser-message-small {
+    font-size:      120%;
+    font-weight:    bold;
+    color:          #844;
+    font-style:     italic;
+    margin:         1em 0;
+}
+
+#explore-input-container {
+    margin:            1em 0;
+}
+
+#explore-input {
+    width:          12em;
+    font-size:      12pt;
+    font-weight:    bold;
+    border:         1px solid #ccc;
+    background:     white;
+    padding:        5px;
+}

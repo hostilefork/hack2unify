@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>Freebase Parallax - Chart 2D View</title>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/thumbnail.css" type="text/css" />
+    <link rel="stylesheet" href="styles/views/chart2d-view.css" type="text/css" />
+    <link rel="stylesheet" href="styles/attribution.css" type="text/css" />
+    <style>
+        #the-chart {
+            position:   absolute;
+            left:       0px;
+            width:      100%;
+            overflow:   hidden;
+        }
+        .item-lens-container {
+            padding:        1em;
+            width:          30em;
+            border:         1px solid #ccc;
+            height:         18em;
+            overflow:       hidden;
+        }
+    </style>
+    <script src="http://static.simile.mit.edu/ajax/api-2.0/simile-ajax-api.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/render.js"></script>
+    <script src="scripts/util/url.js"></script>
+    <script src="scripts/util/color-coder.js"></script>
+    <script src="scripts/util/ui.js"></script>
+    <script src="scripts/data/path-util.js"></script>
+    <script src="scripts/views/chart-2d-view/chart-2d-view-worker.js"></script>
+    <script>
+        var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
+        function genericErrorHandler(s) {
+            log(s);
+        }
+        
+        var job;
+        var thePoints;
+        var theColorCoder = new DefaultColorCoder();
+        function onLoad() {
+            try {
+                var url = document.location.href;
+                var q = url.indexOf("?");
+                var s = url.substr(q + 1);
+                
+                job = JSON.parse(decodeURIComponent(s));
+                job.colorCoder = theColorCoder;
+                job.colorKeys = {};
+                
+                chart2DViewQuery(job, function(points) {
+                    thePoints = points;
+                    plot();
+                    
+                    window.onresize = function() { window.setTimeout(plot, 1000); };
+                });                
+            } catch (e) {
+                alert(e);
+            }
+        }
+        
+        function plot() {
+            resizeChart();
+            chart2DViewPlot(
+                document.getElementById("the-chart"), 
+                thePoints, 
+                theColorCoder, 
+                document.getElementById("the-chart").offsetHeight - 60,
+                function(f) { f(job.xAxisLabel); },
+                function(f) { f(job.yAxisLabel); }
+            );
+        }
+
+        function resizeChart() {
+            var div = document.getElementById("the-chart");
+            if (SimileAjax.Platform.browser.isIE) {
+                div.style.top = "55px";
+                div.style.height = (document.body.offsetHeight - 55) + "px";
+            } else {
+                div.style.top = "55px";
+                div.style.bottom = "0px";
+            }
+        }
+        
+        function showLightboxForThumbnail(evt) {
+            // not sure what to do
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div class="freebase-attribution">
+        <img class="freebase-attribution-logo" src="http://www.freebase.com/api/trans/raw/freebase/attribution" />
+        <div>
+            Source: <a href="http://www.freebase.com" title="Freebase &ndash; The World's Database">Freebase</a> &ndash; The World's Database <br/> 
+            Freely licensed under <a href="http://www.freebase.com/view/common/license/cc_attribution_25">CC-BY</a>.
+        </div>
+    </div> 
+    <div id="the-chart"></div>
+</body>
+</html>

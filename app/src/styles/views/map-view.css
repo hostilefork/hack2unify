@@ -1,0 +1,13 @@
+.map-view-controls {
+	margin: 		20px 0px;
+	background:		#eee;
+}
+.map-view-legend {
+	padding:	20px;
+}
+.map-view-legend-entry {
+	margin-bottom: 2px;
+}
+.map-view-legend-entry img {
+	margin-right: 5px;
+}

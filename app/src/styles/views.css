@@ -1,0 +1,57 @@
+#results-view-container {
+}
+
+#results-summary-container {
+    color: #aaa;
+    font-size: 120%;
+    margin-bottom: 1em;
+}
+
+.results-summary-type {
+    color:        black;
+    font-weight:  bold;
+}
+
+.results-summary-count {
+    color:        black;
+}
+.results-summary-original-count {
+    font-size:    120%;
+    color:        black;
+}
+
+.item-lens-container {
+    float:          left;
+    width:          30em;
+    margin:            1em;
+}
+.item-lens-base-results {
+    margin-bottom:    2px;
+}
+
+.item-lens-inner-container {
+    border:         1px solid #ccc;
+    padding:        1em;
+    height:         18em;
+    overflow:       hidden;
+}
+
+#view-selector-pane {
+    padding:        10px 20px;
+    padding-right:  220px;
+    text-align:     right;
+}
+
+.view-selector {
+    background:           #ddd;
+    padding:              3px 7px;
+    -moz-border-radius:   10px;
+    margin-right:         5px;
+    cursor:               pointer;
+}
+
+.view-selector-selected {
+    background:     #faa;
+    font-weight:    bold;
+    cursor:         default;
+}

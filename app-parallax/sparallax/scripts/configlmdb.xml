@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<endpoint>http://virtuoso.deri.ie/sparql</endpoint>
+<dataset>lmdb</dataset>
+<graph>http://lmdb.org</graph>
+<labelprop>rdfs:label</labelprop>
+<typeprop>rdf:type</typeprop>
+<classtype>rdfs:Class</classtype>
+<result>o.results.bindings[i]</result>
+<abstractprop>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt;</abstractprop>
+<imageprop>&lt;http://xmlns.com/foaf/0.1/img&gt;</imageprop>
+</configuration>

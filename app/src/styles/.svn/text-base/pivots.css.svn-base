@@ -1,0 +1,28 @@
+.pivot-pane-sign {
+    text-align: center;
+}
+
+.pivot-pane-header {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.pivot-pane-body {
+    padding:    5px;
+}
+
+.pivot-pane-footer {
+    font-weight:    bold;
+    text-align:     right;
+    margin-top:     1em;
+    border-top:     1px solid #B8B8DB;
+    padding-top:    2px;
+}
+
+.pivot-choice {
+}
+
+.pivot-choice-menu-hint {
+    color: #aaa;
+    font-size: 80%;
+}

@@ -1,0 +1,79 @@
+<project default="bundle" basedir="." name="Timeline">
+
+  <target name="tasks">
+  </target>
+    
+  <target name="bundle" depends="tasks">
+    <concat destfile="src/bundles/browse-bundle.css">
+        <fileset dir="src/styles">
+        	<include name="common.css" />
+            <include name="history.css" />
+            <include name="pivots.css" />
+            <include name="facets.css" />
+            <include name="topic.css" />
+            <include name="changes.css" />
+            <include name="parallax-search-widget.css" />
+            <include name="dimension-picker-widget.css" />
+            <include name="views.css" />
+            <include name="views/map-view.css" />
+            <include name="views/timeline-view.css" />
+            <include name="views/chart1d-view.css" />
+            <include name="views/chart2d-view.css" />
+			<include name="views/tabular-view.css" />
+        	<include name="thumbnail.css" />
+        </fileset>
+        <fileset dir="src/styles">
+        	<!-- This forces concat to bundle browse.css last so it can override some other CSS rules -->
+            <include name="browse.css" />
+        </fileset>
+    </concat>
+    <concat destfile="src/bundles/browse-bundle.js">
+        <fileset dir="src/scripts">
+            <include name="externals/jquery-in/jquery-ui-personalized-1.5.2.packed.js" />
+            <include name="externals/jquery.cookie.js" />
+            <include name="externals/json2.js" />
+            <include name="externals/rison.js" />
+            
+            <include name="common.js" />
+            <include name="util/queue.js" />
+            <include name="util/render.js" />
+            <include name="util/render-topic-page.js" />
+            <include name="util/url.js" />
+            <include name="util/listener-queue.js" />
+            <include name="util/ui.js" />
+            <include name="util/change-manager.js" />
+            <include name="util/color-coder.js" />
+            <include name="util/logging.js" />
+            
+            <include name="data/schema-util.js" />
+            <include name="data/path-util.js" />
+            <include name="data/collection-definition.js" />
+            <include name="data/collection.js" />
+            <include name="data/type-stack.js" />
+            
+            <include name="views/view-util.js" />
+            <include name="views/thumbnail-view.js" />
+            <include name="views/single-topic-view.js" />
+            <include name="views/map-view/map-view.js" />
+            <include name="views/map-view/map-view-querying.js" />
+            <include name="views/timeline-view/timeline-view.js" />
+            <include name="views/timeline-view/timeline-view-worker.js" />
+            <include name="views/chart-1d-view/chart-1d-view.js" />
+            <include name="views/chart-1d-view/chart-1d-view-worker.js" />
+            <include name="views/chart-2d-view/chart-2d-view.js" />
+            <include name="views/chart-2d-view/chart-2d-view-worker.js" />
+            <include name="views/tabular-view/tabular-view.js" />
+            <include name="views/tabular-view/tabular-view-worker.js" />
+            
+            <include name="facets/list-facet.js" />
+            <include name="facets/text-search-facet.js" />
+            
+            <include name="trail-point.js" />
+            <include name="parallax-search-widget.js" />
+            <include name="property-picker-widget.js" />
+            <include name="dimension-picker-widget.js" />
+            <include name="browse.js" />
+        </fileset>
+    </concat>
+  </target>
+</project>

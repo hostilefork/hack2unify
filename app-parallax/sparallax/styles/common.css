@@ -1,0 +1,45 @@
+body {
+    font-family:    Optima, Arial, Helvetica;
+    font-size:      9pt;
+    margin:         0px;
+    padding:        0px;
+}
+table {
+    font-size: 100%;
+}
+
+#header-pane {
+    color:          white;
+    background:     #888 url(../images/header.png) top left no-repeat;
+    padding:        10px 20px;
+}
+
+#header-pane table {
+    color: white;
+}
+
+#header-pane a {
+    color: white;
+}
+
+a.action {
+    color: #8080BF;
+    text-decoration: none;
+}
+
+a.action:hover {
+    text-decoration: underline;
+    color:           #66f;
+}
+
+a.action img {
+    vertical-align: middle;
+    border: none;
+}
+
+.status {
+    color: #888;
+}
+.status img {
+    vertical-align: middle;
+}
