@@ -3,6 +3,7 @@ var trailPoints = [];
 var trailPointIndex = -1;
 var debug = false;
 var showExplanation = false;
+var categoryButton = null;
 
 var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
 function genericErrorHandler(s, query) {
@@ -14,6 +15,63 @@ function genericErrorHandler(s, query) {
 }
 
 function onLoad() {
+
+    // HACK TO TRY AND GET BUTTONS IN LIEU OF TABS FOR THE MOMENT
+    function setStateForCategoryButton(b) {
+       b.className = (categoryButton == b) ? "view-selector view-selector-selected" : "view-selector"; 
+    }
+    
+    categoryButton = document.getElementById('organizationsButton');
+    var organizationsClick = function() {
+                Logging.log("category-change", 'organizations');
+		var oldButton = categoryButton; 
+		categoryButton = this;
+                setStateForCategoryButton(oldButton);
+		setStateForCategoryButton(this);
+		onNewCollection(
+		  new Collection(
+		    new RootTypeCollectionDefinition(
+		      "/organization/non_profit_organization",
+		      null /* "search" */
+		    )
+		  )
+		);
+            };
+    document.getElementById('organizationsButton').onclick = organizationsClick;
+	    
+    document.getElementById('projectsButton').onclick = function() {
+	Logging.log("category-change", 'projects');
+		var oldButton = categoryButton; 
+		categoryButton = this;
+                setStateForCategoryButton(oldButton);
+		setStateForCategoryButton(this);
+		onNewCollection(
+		  new Collection(
+		    new RootTypeCollectionDefinition(
+		      "/projects/project",
+		      null /* "search" */
+		    )
+		  )
+		);
+    };
+
+    document.getElementById('peopleButton').onclick = function() {
+	Logging.log("category-change", 'people');
+		var oldButton = categoryButton; 
+		categoryButton = this;
+                setStateForCategoryButton(oldButton);
+		setStateForCategoryButton(this);
+		onNewCollection(
+		  new Collection(
+		    new RootTypeCollectionDefinition(
+		      "/people/person",
+		      null /* "search" */
+		    )
+		  )
+		);
+    };
+    // END HACK
+    
     var historyIndex;
     SimileAjax.WindowManager.initialize();
     SimileAjax.History.initialize();
@@ -39,9 +97,15 @@ function onLoad() {
         browser:    SimileAjax.Platform.browser
     });
 
+    // TAKING OUT SEARCH FOR NOW
+    /*
     var exploreInput = document.getElementById("explore-input");
     exploreWidget = ParallaxSearchWidget.create(exploreInput, exploreQueryHandler);
+    */
     
+    // Disabling all the parse interface and instead just doing the organizations click action
+    organizationsClick();
+    /* 
     var params = parseURLParameters(document.location.href);
     if ("state" in params) {
         var state = null;
@@ -77,6 +141,7 @@ function onLoad() {
             )
         );
     }
+    */
 }
 
 function exploreQueryHandler(query) {

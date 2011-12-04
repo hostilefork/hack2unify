@@ -11,6 +11,7 @@ table {
 #header-pane {
     color:          white;
     background:     #888 url(../images/header.png) top left no-repeat;
+  // no background image for now
     padding:        10px 20px;
 }
 
