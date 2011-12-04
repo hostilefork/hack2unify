@@ -1,0 +1,16 @@
+.freebase-hotshot-container {
+}
+
+.freebase-hotshot-name {
+    font-size: 120%;
+}
+
+.freebase-hotshot-thumbnail {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.freebase-hotshot-links {
+    font-size: 90%;
+    margin-bottom: 1em;
+}

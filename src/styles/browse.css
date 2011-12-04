@@ -1,0 +1,90 @@
+#history-pivot-pane {
+    background:      #eee;
+    padding:         10px 20px;
+    text-align:      right;
+    overflow:        visible;
+    position:        relative;
+    border-bottom:   1px solid #aaa;
+}
+
+#history-pane {
+    padding-right:   200px;
+    height:          1em;
+    overflow:        visible;
+}
+
+#header-pane {
+    padding-right:  220px;
+}
+
+#pivot-pane {
+    position:        absolute;
+    top :            -60px;
+    right:           0px;
+    width:           180px;
+    padding:         15px;
+    text-align:      left;
+    background:      #E8E8FF;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border:          1px solid #B8B8DB;
+    border-right:    none;
+}
+
+#view-pane {
+    padding: 20px;
+}
+
+#facet-pane {
+    padding: 10px; 
+    width:    300px; 
+}
+
+div.menu-popup {
+    position:       absolute;
+    width:          15em;
+    z-index:        1000;
+    background:     #FFFFE0;
+    border:         1px solid #aaa;
+}
+
+a.menu-item {
+    text-decoration:    none;
+}
+
+a.menu-item > div {
+    padding:            2px 2px 2px 20px;
+    text-indent:        -18px;
+}
+
+a:hover.menu-item > div {
+    background:         #DFDFC8;
+}
+
+a.menu-item div img {
+    vertical-align:     middle;
+    margin-right:       2px;
+    border:             none;
+}
+
+div.menu-section {
+    padding:            2px;
+    font-weight:        bold;
+    border-top:         1px solid #aaa;
+    border-bottom:      1px solid #aaa;
+    background:         #eee;
+}
+
+#pivoting-explanation {
+    display: none;
+}
+.pivoting-explanation {
+    color: #822;
+}
+.pivoting-explanation h1 {
+    font-size: 120%;
+    margin:    0px;
+}
+.pivoting-explanation div {
+    margin-top: 1em;
+}

@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Freebase Parallax - Chart 1D View</title>
-    <link href="http://freebaselibs.com/static/parallax/1.1/styles/common.css" rel="stylesheet" type="text/css">
-    <link href="http://freebaselibs.com/static/parallax/1.1/styles/thumbnail.css" rel="stylesheet" type="text/css">
-    <link href="http://freebaselibs.com/static/parallax/1.1/styles/views/chart1d-view.css" rel="stylesheet" type="text/css">
+    <link href="styles/common.css" rel="stylesheet" type="text/css">
+    <link href="styles/thumbnail.css" rel="stylesheet" type="text/css">
+    <link href="styles/views/chart1d-view.css" rel="stylesheet" type="text/css">
     <link href="attribution.css" rel="stylesheet">
     <style>
       #the-chart {
@@ -20,17 +20,17 @@
     </style>
     
     <script src="http://api.simile-widgets.org/ajax/2.2.1/simile-ajax-api.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/common.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/externals/json2.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/util/queue.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/util/render.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/util/url.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/util/color-coder.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/util/ui.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/data/path-util.js"></script>
-    <script src="http://freebaselibs.com/static/parallax/1.1/scripts/views/chart-1d-view/chart-1d-view-worker.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/externals/json2.js"></script>
+    <script src="scripts/util/queue.js"></script>
+    <script src="scripts/util/render.js"></script>
+    <script src="scripts/util/url.js"></script>
+    <script src="scripts/util/color-coder.js"></script>
+    <script src="scripts/util/ui.js"></script>
+    <script src="scripts/data/path-util.js"></script>
+    <script src="scripts/views/chart-1d-view/chart-1d-view-worker.js"></script>
     <script>
-      var baseUrl = "http://freebaselibs.com/static/parallax/1.1/";
+      var baseUrl = "";
       
       var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
       function genericErrorHandler(s) {

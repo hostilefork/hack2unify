@@ -1,0 +1,62 @@
+.tabular-view-controls {
+    margin:         20px 0px;
+    background:        #eee;
+}
+.tabular-view-legend {
+    padding:    20px;
+}
+.tabular-view-legend-entry {
+    margin-bottom: 2px;
+}
+.tabular-view-legend-entry img {
+    margin-right: 5px;
+}
+
+.tabular-view-table td {
+    border-left: 1px solid #ddd;
+    padding: 3px 5px;
+}
+
+td.tabular-view-header-cell {
+    background: #eee;
+}
+
+.tabular-view-header-label {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tabular-view-header-remove-button {
+    float: right;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+.tabular-view-header-edit-button {
+    float: right;
+}
+
+td.tabular-view-header-editing {
+    background: #E4E4BC;
+}
+
+td.tabular-view-header-editing-container {
+    background: #E4E4BC;
+    padding: 1em;
+}
+
+.tabular-view-editing-settings {
+    margin-bottom: 1em;
+}
+
+.tabular-view-editing-controls {
+}
+
+td.tabular-view-data-cell {
+    border-top: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.tabular-view-data-cell ol {
+    padding-left: 1.5em;
+}
