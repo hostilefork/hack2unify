@@ -2,7 +2,7 @@
     window.ParallaxConfig = {
         sandbox:        false,
         corpusBaseUrl:  "http://www.sandbox-freebase.com/", /* use sandbox instead of live data */
-        appBaseUrl:     "freebaseapps.com/", /* don't use sandbox, doesn't have some scripts! */ 
+        appBaseUrl:     "sandbox-freebaseapps.com/", /* use sandbox instead of live data */ 
         appendConfigParams: function(url) { return url; }
     };
     
