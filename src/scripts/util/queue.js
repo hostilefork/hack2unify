@@ -77,6 +77,18 @@ JsonpQueue.call = function(url, onDone, onError, debug) {
 };
 
 JsonpQueue.queryOne = function(query, onDone, onError, debug) {
+    // override the query for the heck of it.
+    if (query[0].type === "/people/person") {
+      /*alert("peeeps"); */
+      query[0]["/people/person/profession"] = "Philanthropist";
+    } else if (query[0].type === "/projects/project") {
+      /*alert("projjs");*/
+    } else if (query[0].type === "/organization/non_profit_organization") {
+      /*alert("nonproffs");*/
+    } else {
+      /* alert("unexpected query type in terrible hack code of queue.js"); */
+    }
+    
     var q = JSON.stringify({ "q1" : { "query" : query } });
     var url = ParallaxConfig.corpusBaseUrl + 'api/service/mqlread?queries=' + encodeURIComponent(q);
     var onDone2 = function(o) {

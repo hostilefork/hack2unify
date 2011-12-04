@@ -72,7 +72,8 @@ function onLoad() {
 		onNewCollection(
 		  new Collection(
 		    new RootTypeCollectionDefinition(
-		      "/user/hostilefork/default_domain/resource_provider",
+		      /*"/user/hostilefork/default_domain/resource_provider", */
+		      "/people/person",
 		      null /* "search" */
 		    )
 		  )
