@@ -18,7 +18,7 @@ function onLoad() {
 
     // HACK TO TRY AND GET BUTTONS IN LIEU OF TABS FOR THE MOMENT
     function setStateForCategoryButton(b) {
-       b.className = (categoryButton == b) ? "view-selector view-selector-selected" : "view-selector"; 
+       b.className = (categoryButton === b) ? "view-selector view-selector-selected" : "view-selector"; 
     }
     
     categoryButton = document.getElementById('organizationsButton');
@@ -26,7 +26,8 @@ function onLoad() {
                 Logging.log("category-change", 'organizations');
 		var oldButton = categoryButton; 
 		categoryButton = this;
-                setStateForCategoryButton(oldButton);
+                if (oldButton !== null)
+		   setStateForCategoryButton(oldButton);
 		setStateForCategoryButton(this);
 		onNewCollection(
 		  new Collection(
@@ -43,7 +44,8 @@ function onLoad() {
 	Logging.log("category-change", 'projects');
 		var oldButton = categoryButton; 
 		categoryButton = this;
-                setStateForCategoryButton(oldButton);
+		if (oldButton !== null)
+		  setStateForCategoryButton(oldButton);
 		setStateForCategoryButton(this);
 		onNewCollection(
 		  new Collection(
@@ -59,12 +61,13 @@ function onLoad() {
 	Logging.log("category-change", 'people');
 		var oldButton = categoryButton; 
 		categoryButton = this;
-                setStateForCategoryButton(oldButton);
+                if (oldButton !== null)
+		   setStateForCategoryButton(oldButton);
 		setStateForCategoryButton(this);
 		onNewCollection(
 		  new Collection(
 		    new RootTypeCollectionDefinition(
-		      "/people/person",
+		      "/user/hostilefork/default_domain/resource_provider",
 		      null /* "search" */
 		    )
 		  )
@@ -104,7 +107,7 @@ function onLoad() {
     */
     
     // Disabling all the parse interface and instead just doing the organizations click action
-    organizationsClick();
+    organizationsClick.apply(categoryButton, [categoryButton]);
     /* 
     var params = parseURLParameters(document.location.href);
     if ("state" in params) {
