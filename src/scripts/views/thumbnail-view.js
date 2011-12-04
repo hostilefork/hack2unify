@@ -49,7 +49,9 @@ ThumbnailView.prototype.onModeChanged = function(mode) {
 ThumbnailView.prototype._constructUI = function() {
     this._div.innerHTML = 
         '<div id="results-summary-container"></div>' +
-        '<div id="thumbnail-view-controls">&raquo; embed these topics <a href="javascript:{}" class="action">as thumbnails</a> &bull; <a href="javascript:{}" class="action">as tiles</a></div>' +
+	// HACK2UNIFY embedding is cool but just clutters the screen a bit right now
+	// Revisit...
+        '<div id="thumbnail-view-controls"' + ' style="display:none;"' + '>&raquo; embed these topics <a href="javascript:{}" class="action">as thumbnails</a> &bull; <a href="javascript:{}" class="action">as tiles</a></div>' +
         '<div id="results-view-container"></div>';
         
     this._dom = {

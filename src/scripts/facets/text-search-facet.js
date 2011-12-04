@@ -81,7 +81,10 @@ TextSearchFacet.prototype._constructUI = function() {
         inputDiv:       divs[1],
         statusDiv:      divs[2]
     };
-    this._dom.input = this._dom.inputDiv.firstChild;
+    // HACK2UNIFY
+/*    this._dom.input = this._dom.inputDiv.firstChild; */
+    this._dom.input = this._dom.inputDiv.getElementsByTagName("input")[0];
+
     this._dom.pastQuery = this._dom.statusDiv.getElementsByTagName("span")[0];
     this._dom.resetAction = this._dom.statusDiv.getElementsByTagName("a")[0];
     this._div.appendChild(div);

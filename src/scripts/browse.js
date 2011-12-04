@@ -23,7 +23,7 @@ function onLoad() {
 
     // HACK TO TRY AND GET BUTTONS IN LIEU OF TABS FOR THE MOMENT
     function setStateForCategoryButton(b) {
-       b.className = (categoryButton === b) ? "view-selector view-selector-selected" : "view-selector"; 
+       b.parentNode.className = (categoryButton === b) ? "current" : ""; 
     }
     
     categoryButton = document.getElementById('organizationsButton');

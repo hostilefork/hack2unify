@@ -8,13 +8,18 @@ table {
     font-size: 100%;
 }
 
+/* HACK2UNIFY header-pane screwing up by putting odd thing on right, don't know why
+ This actually doesn't even help.  Had to comment out the div */
+
 #header-pane {
-    color:          white;
-    background:     #888 url(../images/header.png) top left no-repeat;
+/*    color:          white; */
+/*    background:     #888 url(../images/header.png) top left no-repeat; */
   // no background image for now
     padding:        10px 20px;
+    padding-right: 220px;
 }
 
+/*
 #header-pane table {
     color: white;
 }
@@ -22,6 +27,87 @@ table {
 #header-pane a {
     color: white;
 }
+*/
+
+/* HACK2UNIFY This is by no means the end-all be-all of tabs but it doesn't require libs */
+/* Swiped from: http://www.dynamicdrive.com/style/csslibrary/item/inverted-shift-down-menu/ */
+
+.invertedshiftdown{
+padding: 0;
+width: 100%;
+border-top: 5px solid /*#D10000 */ #08111E; /*Red color theme changed to deep blue from Fragile Oasis*/
+background: transparent;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+.invertedshiftdown ul{
+margin:0;
+margin-left: 40px; /*margin between first menu item and left browser edge*/
+padding: 0;
+list-style: none;
+}
+
+.invertedshiftdown li{
+display: inline;
+margin: 0 2px 0 0;
+padding: 0;
+text-transform:uppercase;
+}
+
+.invertedshiftdown a{
+float: left;
+display: block;
+font: /* bold */ 20px Arial;
+color: black;
+text-decoration: none;
+margin: 0 1px 0 0; /*Margin between each menu item*/
+padding: 5px 10px 9px 10px; /*Padding within each menu item*/
+background-color: white; /*Default menu color*/
+
+/*BELOW 4 LINES add rounded bottom corners to each menu item.
+  ONLY WORKS IN FIREFOX AND FUTURE CSS3 CAPABLE BROWSERS
+  REMOVE IF DESIRED*/
+-moz-border-radius-bottomleft: 5px;
+border-bottom-left-radius: 5px;
+-moz-border-radius-bottomright: 5px;
+border-bottom-right-radius: 5px;
+}
+
+.invertedshiftdown a:hover{
+background-color: /*#D10000*/ #08111E; /*Red color theme changed to blue to match Fragile Oasis*/
+padding-top: 9px; /*Flip default padding-top value with padding-bottom */
+padding-bottom: 5px; /*Flip default padding-bottom value with padding-top*/
+color: white;
+}
+
+.invertedshiftdown .current a{ /** currently selected menu item **/
+background-color: /*#D10000*/ #08111E; /*Red color theme changed to blue to match Fragile Oasis*/
+padding-top: 9px; /*Flip default padding-top value with padding-bottom */
+padding-bottom: 5px; /*Flip default padding-bottom value with padding-top*/
+color: white;
+}
+
+#myform{ /*CSS for sample search box. Remove if desired */
+float: right;
+margin: 0;
+margin-top: 2px;
+padding: 0;
+}
+
+#myform .textinput{
+width: 190px;
+border: 1px solid gray;
+}
+
+#myform .submit{
+font: normal 12px Verdana;
+height: 22px;
+border: 1px solid #D10000;
+background-color: black;
+color: white;
+}
+/* END */
 
 a.action {
     color: #8080BF;

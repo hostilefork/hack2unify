@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hack2Unify Dashboard (based on Freebase Parallax)</title>
+    <title>mission:control (derived from Freebase Parallax)</title>
     <script src="http://api.simile-widgets.org/ajax/2.2.1/simile-ajax-api.js"></script>
     <script>window.$ = window.jQuery = SimileAjax.jQuery;</script>
     
@@ -91,16 +91,49 @@
     </script>
   </head>
   <body onload="overrides(); onLoad()">
-    <div id="header-pane">
+    <!-- <div id="header-pane"> -->
+<!-- HACK2UNIFY weird tab from http://www.dynamicdrive.com/style/csslibrary/item/inverted-shift-down-menu/ -->
+<div style="background-color: #01111E; height:48px; border-top: 5px solid #08111E;">
+  <span><center><img src="images/fragile-oasis-header.png" />&nbsp;&nbsp;<img src="images/rhok-header.png" /></center></span>
+</div>
+<div class="invertedshiftdown">
+<ul>
+<!-- <li><a href="http://www.dynamicdrive.com" title="Home">Home</a></li> -->
+<li class="current"><a href="#" title="Non-Profits and Charitable Organizations" id="organizationsButton">Organizations</a></li>
+<li><a href="#" title="Projects Seeking Volunteers" id="projectsButton">Projects</a></li>
+<li><a href="#" title="People Involved in Making the World Better!" id="peopleButton">People</a></li>
+<li><a href="http://fragileoasis.org/blog/" title="Visit The Blog">Blog</a></li>
+</ul>
+
+   <div class="facet" id="text-search-facet-template" style="display: none">
+      <div class="facet-header">
+        <!-- <span class="facet-header-label">Search within Results</span> -->
+        <a class="facet-header-action" href="javascript:{}" style="display: none;">reset</a>
+      </div>
+      <div class="text-search-facet-input-container"><img src="images/search-icon.png" /><input></div>
+      <div class="text-search-facet-status" style="display: none">
+        Searched for: <span class="text-search-facet-query"></span>.
+        <a class="facet-header-action" href="javascript:{}">clear</a>
+      </div>
+    </div>
+<!--<form id="myform">
+<input type="text" class="textinput" /> <input class="submit" type="submit" value="Find" />
+</form>-->
+<!-- </div> -->
+<!-- end weird tab control -->
+
+<br style="clear: both;" />
+<!--
       <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr valign="top">
         <td>
           <a href="index.html" style="text-decoration:none;"><span style="font-family: Arial; font-size: 20pt; font-weight: normal">hack<b>2</b>unify <i>dashboard</i></span></a>
         </td>
-        <td align="right">
-          <a href="javascript:showPermanentLink();">link to this page</a>
+        <td align="right">-->
+	   <!-- for now kill the linking but it's an important feature need to add back in parse -->
+          <!-- <a href="javascript:showPermanentLink();">link to this page</a> -->
 	  <!-- Killing the master search box -->
 	  <!-- &bull; new search <input id="explore-input"> -->
-        </td>
+  <!--      </td>
         </tr></table>
       <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr valign="bottom">
         <td>
@@ -109,11 +142,10 @@
 	  <span id="peopleButton" class="view-selector">People</span>
           </div>
         </td>
-        <td align="right" style="font-size: 80%; margin-top: 10px;">
-          based on Freebase Parallax
+        <td align="right" style="font-size: 80%; margin-top: 10px;"> -->
           <!-- debug: <a href="javascript:toggleDebug();" id="debug-toggle">activate</a> -->
-        </td>
-        </tr></table>
+        <!-- </td>
+        </tr></table> -->
     </div>
     
   <!-- killing history and pivot for now -->
@@ -152,6 +184,7 @@
       </div>
     </div>
     
+<!--
     <div class="facet" id="text-search-facet-template" style="display: none">
       <div class="facet-header">
         <span class="facet-header-label">Search within Results</span>
@@ -163,6 +196,7 @@
         <a class="facet-header-action" href="javascript:{}">clear</a>
       </div>
     </div>
+-->
     
     <div class="facet-choice" id="facet-choice-template" style="display: none">
       <a class="facet-choice-label" href="javascript:{}"></a>
