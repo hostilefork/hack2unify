@@ -5,7 +5,12 @@ var debug = false;
 var showExplanation = false;
 var categoryButton = null;
 
-var log = (window.console) ? function(s) { window.console.log(s); } : /*window.alert*/ function() {};
+var log = (window.console) ? function(s) {
+  window.console.log(s);
+} : /*window.alert*/ function() {
+  var x;
+  x = 0;
+};
 function genericErrorHandler(s, query) {
 	if (typeof query == "object") {
 		log(s + ": " + JSON.stringify(query));
@@ -274,6 +279,9 @@ function internalSwitchCollection(newTrailPoints, newTrailPointIndex, config) {
 };
 
 function renderHistory(config) {
+    // HACK2UNIFY no history
+    return;
+    
     var div = getHistoryPane();
     div.innerHTML = "";
     

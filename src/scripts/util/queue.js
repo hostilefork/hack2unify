@@ -49,11 +49,12 @@ JsonpQueue.call = function(url, onDone, onError, debug) {
     
     var callback = function(o) {
         if (cleanup()) {
-            try {
+	    // HACK2UNIFY: make it easier to find errors.
+            /* try { */
                 onDone(o);
-            } catch (e) {
+            /* } catch (e) {
                 log(e);
-            }
+            } */
         }
     };
     var error = function() {

@@ -115,7 +115,11 @@ TopicPageRendering.prototype._render = function(o) {
                 for (var d = 0; d < dataEntries.length; d++) {
                     var dataEntry = dataEntries[d];
                     var uriEntries = dataEntry["/common/webpage/uri"];
-                    if (uriEntries[0]) {
+		    // HACK2UNIFY: This used to just say "uriEntries[0]" but
+		    // not all web pages necessarily have uris, some just
+		    // have descriptions, so this would crash on non-profits
+		    // like that...quick workaround...
+                    if (uriEntries && uriEntries[0]) {
                         var url = dataEntry["/common/webpage/uri"][0].value;
                         
                         var div = document.createElement("div");

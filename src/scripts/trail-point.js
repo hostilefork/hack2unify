@@ -183,7 +183,8 @@ TrailPoint.prototype.dispose = function() {
     this.collection = null;
 };
 
-TrailPoint.prototype.installUI = function() {try {
+TrailPoint.prototype.installUI = function() {
+    /* try { */
     this._hasUI = true;
     
     var div = getFacetPane();
@@ -207,6 +208,7 @@ TrailPoint.prototype.installUI = function() {try {
     };
     this._facetPaneDom.addFiltersAction = this._facetPaneDom.controlContainer.getElementsByTagName("a")[0];
     
+    /*
     div = getPivotPane();
     div.innerHTML = 
         '<div class="pivot-pane-sign">' +
@@ -238,18 +240,23 @@ TrailPoint.prototype.installUI = function() {try {
         this._pivotPaneDom.statusSection.style.display = "none";
         this._pivotPaneDom.footer.style.display = "none";
     }
+    */
     
     this._registerEventHandlers();
     this._startBuildingUI();
     
     this._views[this._viewIndex].installUI(getViewPane());
-    this._renderViewSelectorPane();} catch(e) { console.log(e) }
+    this._renderViewSelectorPane();
+  
+   /*} catch(e) { console.log(e) } */
 };
 
 TrailPoint.prototype._registerEventHandlers = function() {
     var self = this;
     this._facetPaneDom.addFiltersAction.onclick = function(event) { self._showMoreFilters(); };
-    this._pivotPaneDom.showMoreRelatedTopicsAction.onclick = function(event) { self._showMoreRelatedTopics(); };
+    
+    // HACK2UNIFY
+  /*  this._pivotPaneDom.showMoreRelatedTopicsAction.onclick = function(event) { self._showMoreRelatedTopics(); }; */
 };
 
 TrailPoint.prototype.uninstallUI = function() {
@@ -263,12 +270,14 @@ TrailPoint.prototype.uninstallUI = function() {
     this._pivotPaneDom = null;
     
     getFacetPane().innerHTML = "";
-    getPivotPane().innerHTML = "";
+    // HACK2UNIFY no pivot pane
+    /* getPivotPane().innerHTML = ""; */
 };
 
 TrailPoint.prototype._unregisterEventHandlers = function() {
     this._facetPaneDom.addFiltersAction.onclick = null;
-    this._pivotPaneDom.showMoreRelatedTopicsAction.onclick = null;
+    // HACK2UNIFY removing pivot pane
+    /* this._pivotPaneDom.showMoreRelatedTopicsAction.onclick = null; */
 };
 
 TrailPoint.prototype.onModeChanged = function(mode) {
@@ -328,6 +337,9 @@ TrailPoint.prototype._tryAddMoreFacets = function() {
 };
 
 TrailPoint.prototype._tryAddMorePivots = function() {
+    // HACK2UNIFY we don't pivot
+    return;
+    
     if (this.collection.isSingular()) {
         return;
     }
@@ -347,6 +359,9 @@ TrailPoint.prototype._tryAddMorePivots = function() {
 };
 
 TrailPoint.prototype._addMoreFacets = function(typeRecord, dimensions) {
+    // HACK2UNIFY we don't show component types because that could lead
+    // people to browsing new topics, like the pivot, instead of filtering
+    /*
     if (this._facetRecords.length == 0 && this._baseTypeStack.getTypeCount() > 1) {
         var facet = new ListFacet(
             this.collection,
@@ -361,6 +376,7 @@ TrailPoint.prototype._addMoreFacets = function(typeRecord, dimensions) {
         );
         this._appendFacet(facet);
     }
+    */
     
     for (var i = 0; i < dimensions.length; i++) {
         var dimension = dimensions[i];
@@ -512,6 +528,9 @@ TrailPoint.prototype._removeFacet = function(facet) {
 };
 
 TrailPoint.prototype._installPivotUI = function() {
+    // HACK2UNIFY: killing pivot for demo to simplify code
+    return;
+
     var body = this._pivotPaneDom.pivotContainer;
     for (var i = 0; i < this._pivotDimensions.length; i++) {
         this._appendPivotGivenDimension(this._pivotDimensions[i]);
@@ -519,6 +538,9 @@ TrailPoint.prototype._installPivotUI = function() {
 };
 
 TrailPoint.prototype._appendPivotGivenDimension = function(dimension) {
+    // HACK2UNIFY: killing pivot for demo to simplify code
+    return;
+
     var self = this;
     
     var label = dimension.label;
@@ -645,6 +667,9 @@ TrailPoint.prototype._showMoreFilters = function() {
 };
 
 TrailPoint.prototype._showMoreRelatedTopics = function() {
+    // HACK2UNIFY: killing pivot for demo to simplify code
+    return;
+
     Logging.log("show-more-pivots", {});
                 
     var self = this;
